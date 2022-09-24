@@ -1,0 +1,134 @@
+/* 牌桌 */
+#cards {
+  display: flex;
+  /* flex預設軸為row */
+
+  flex-wrap: wrap;
+
+  /* 根據header改變新增 */
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* 每張卡片卡片 */
+.card {
+  box-sizing: border-box;
+
+  /* 卡片在容器裡的排版 ，即卡片在牌桌上的方式*/
+  flex: 7% 1 1;
+  /* 修改：卡片需要分配剩餘空間 */
+  /* flex-basis:一排13張，100/13約等於7...., flex-grow:容器剩餘空間是否留存，0則是留著, flex-shrink:自我收縮，若是容器空間不夠用的話。1會去跟所有是1的對像分配剩餘空間。 */
+  height: 8vw;
+  /* 100vw=100%視窗大小，8vw=8%視窗大小 */
+  /* 已知容器空間寬度預設(flex預設軸為row) 。只須設定高度*/
+  border: 2px solid #e0e0e0;
+  margin: 2px;
+
+  /* 卡片內部元素的排版 */
+  display: flex;
+  flex-direction: column;
+  /* 更改主要軸為column */
+  justify-content: space-around;
+  /* 主要軸設定。space-around讓flex-box裡面的每個元素左右margin是一樣的 */
+
+
+}
+
+.card img {
+  max-width: 30%;
+  align-self: center;
+  /* align-self是排交叉軸用的，在上一層的設定裡面已更改主要軸為column */
+}
+
+.card p {
+  margin: 3px;
+  /* 文字預設回超出邊界，是因為本身自帶margin，所以要重設 */
+  font-size: 10px;
+}
+
+/* 設定牌面的下面數字 */
+.card p:last-child {
+  transform: rotate(180deg);
+  /* 改變<p>的最後一個child的角度 */
+}
+
+/* 設定牌背 */
+.back {
+  background: url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+  background-size: cover;
+}
+
+/* 配對成功後的樣式 */
+.paired {
+  background-color: #dae0e3;
+}
+
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 4em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+/* 將動畫套用到這裡，使用animation 這個property去呼叫設定的動畫名稱。 */
+.wrong {
+  /* 動畫播放0.2秒 */
+  animation: wrongAnimation 0.2s;
+  /* 播放幾次 */
+  animation-iteration-count: 5;
+}
+
+/* 直接在CSS裡設定動畫，使用@keyframes(類似動畫關鍵影格效果) 。動畫定義好之後(類似class屬性)，要套用才會啟用。須注意，因為是套用class，所以動畫無法重複。*/
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/* 在CSS新增結束畫面樣式 */
+/** Game finished **/
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed>p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed>p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}

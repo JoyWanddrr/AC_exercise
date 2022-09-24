@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 載入bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Fake User Group</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <!-- 在想要不要設計成點開就是誰的圖像? -->
+        <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="" width="30" height="24"
+          class="d-inline-block align-text-top" id="top-avatar">
+        Fake User List
+      </a>
+    </div>
+  </nav>
+
+
+  <div class="container mt-5">
+    <div class="row" id="user-list">
+      <!-- 放入的資料 -->
+    </div>
+  </div>
+
+  <!-- modal -->
+
+  <div class="modal fade" id="user-info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- name、surname -->
+          <h5 class="modal-title" id="modal-user-allName">User title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-user-body">
+          <div class="row">
+            <!-- 分成左右邊，左邊是圖片、右邊是資訊 -->
+            <div class="col-sm-3" id="modal-user-avatar">
+              <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="movie-poster" class="img-fluid">
+            </div>
+            <!--email、gender、age、region、birthday、avatar-->
+            <div class="col-sm-9" id="modal-user-detail">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 載入AXIOS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- 載入JS檔案 必須放在AXIOS後面，因為JS會用到-->
+  <script src="./index.js"> </script>
+  <!-- 載入bootstrap 提供的JS檔案 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
