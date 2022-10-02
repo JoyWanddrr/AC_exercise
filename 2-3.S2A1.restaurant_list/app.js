@@ -34,7 +34,6 @@ app.get('/search', (req, res) => {
 app.get('/restaurants/:id', (req, res) => {
   // 比對點擊的ID相符，即放入資料。使用fine提取list裡的id，轉成字串，與req.params.id做比對。
   const restaurantId = restaurant_list.results.find(restaurant => restaurant.id.toString() === req.params.id)
-  console.log(restaurantId)
   res.render('show', { restaurant: restaurantId })
 })
 
